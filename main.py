@@ -27,7 +27,7 @@ while game_is_on:
     screen.update()
     snake.move()
 
-    # detect collision with wall
+    # detect collision with wall if to wanted
     if snake.head.distance(food) < 15:
         food.refresh()
         snake.extend()
