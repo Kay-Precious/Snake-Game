@@ -15,15 +15,19 @@ class ScoreBoard(Turtle):
         self.hideturtle()
 
     def update(self):
+        '''Updates Increasing Score'''
         self.clear()
         self.write(f'Score: {self.score}  High Score: {
                    self.highscore}', False, "center", ('Arial', 16, 'normal'))
 
     def add_score(self):
+        '''Increase to current score'''
         self.score += 1
         self.update()
 
     def reset(self):
+        '''Reset score'''
+        # Saves New Score if greater than Current Score
         if self.score > self.highscore:
             with open('data.txt', 'w') as file:
                 self.highscore = self.score
