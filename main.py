@@ -3,6 +3,7 @@ import time
 from snake import Snake
 from food import Food
 from scoreboard import ScoreBoard
+
 # Screen set-up
 screen = Screen()
 
