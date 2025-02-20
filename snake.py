@@ -2,6 +2,8 @@ from turtle import Turtle
 
 
 class Snake:
+    '''Snake's Functionality'''
+
     def __init__(self):
         self.segments = []
         self.create_snake()
@@ -9,6 +11,7 @@ class Snake:
         x_modifier = 0
 
     def create_snake(self):
+        '''Creates snake'''
         x_modifier = 0
         for position in range(3):
             tim = Turtle("square")
@@ -20,6 +23,7 @@ class Snake:
             self.segments.append(tim)
 
     def extend(self):
+        '''Extends Snake per Collision with Food'''
         new_seg = Turtle("square")
         new_seg.shapesize(0.7, 0.7)
         new_seg.penup()
@@ -28,6 +32,7 @@ class Snake:
         self.segments.append(new_seg)
 
     def reset(self):
+        '''Reset Snake After Collision!'''
         for seg in self.segments:
             seg.goto(1000, 1000)
         self.segments.clear()
@@ -35,10 +40,12 @@ class Snake:
         self.head = self.segments[0]
 
     def move(self):
+        '''Controls Snake's motion'''
         for new_seg in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[new_seg - 1].xcor()
             new_y = self.segments[new_seg - 1].ycor()
             self.segments[new_seg].goto(new_x, new_y)
+
         if self.head.xcor() > 290:
             self.head.setx(-290)
         elif self.head.xcor() < -290:
